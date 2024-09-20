@@ -11,9 +11,12 @@ function draw() {
   bird.update();
 }
 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
 function keyPressed() {
   if (key == " " || key == "w" || key == "W" || keyCode == UP_ARROW) {
-    console.log(`${key} pressed`);
     bird.up();
   }
 }

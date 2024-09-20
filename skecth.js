@@ -10,3 +10,9 @@ function draw() {
   bird.show();
   bird.update();
 }
+
+function keyPressed() {
+  if (key == " " || key == "w" || key == "W" || keyCode == UP_ARROW) {
+    bird.up();
+  }
+}

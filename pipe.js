@@ -1,6 +1,10 @@
 function Pipe() {
-  this.top = random(height / 2);
-  this.bottom = random(height / 2);
+  let spacing = random(120, height / 2);
+  let centery = random(spacing, height - spacing);
+
+  this.top = centery - spacing / 2;
+  this.bottom = height - (centery + spacing / 2);
+
   this.x = width;
   this.w = 80;
   this.speed = 3;

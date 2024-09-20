@@ -1,5 +1,7 @@
 let bird;
 let pipes = [];
+let score = 0;
+let gameOver = false;
 
 function setup() {
   createCanvas(1900, 800);
@@ -9,6 +11,23 @@ function setup() {
 
 function draw() {
   background(100, 150, 255);
+  document.getElementById("score").innerText = "score : " + score;
+
+  if (gameOver) {
+    //pipes
+    for (let i = pipes.length - 1; i >= 0; i--) {
+      pipes[i].show();
+    }
+    // bird
+    bird.show();
+    //gameover
+    fill(255, 0, 0);
+    textSize(64);
+    textAlign(CENTER);
+    text("GAME OVER", width / 2, height / 2);
+    return;
+  }
+
   bird.show();
   bird.update();
 
@@ -17,8 +36,23 @@ function draw() {
   }
 
   for (let i = pipes.length - 1; i >= 0; i--) {
-    pipes[i].show();
     pipes[i].update();
+
+    if (pipes[i].hit(bird)) {
+      pipes[i].highlight = true;
+      console.log("HIT");
+      pipes[i].speed = 0;
+      bird.gravity = 0;
+      gameOver = true;
+    }
+
+    pipes[i].show();
+
+    if (!pipes[i].hasHit && bird.x > pipes[i].x + pipes[i].w) {
+      pipes[i].hasHit = true;
+      score += 1;
+      console.log("score : ", score);
+    }
 
     if (pipes[i].offScreen()) {
       pipes.splice(i, 1);

@@ -8,7 +8,7 @@ function Bird() {
   this.img = birdImg;
 
   this.gravity = 0.6;
-  this.lift = -20;
+  this.lift = -15;
   this.velocity = 0;
 
   this.show = function () {

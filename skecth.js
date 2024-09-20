@@ -13,6 +13,7 @@ function draw() {
 
 function keyPressed() {
   if (key == " " || key == "w" || key == "W" || keyCode == UP_ARROW) {
+    console.log(`${key} pressed`);
     bird.up();
   }
 }

@@ -31,8 +31,24 @@ function draw() {
   bird.show();
   bird.update();
 
-  if (frameCount % 150 == 0) {
-    pipes.push(new Pipe());
+  //   if (frameCount % 150 == 0) {
+  //     pipes.push(new Pipe());
+  //   }
+
+  //tingkat kesulitan
+
+  if (score <= 5) {
+    if (frameCount % 150 == 0) {
+      pipes.push(new Pipe());
+    }
+  } else if (score > 5) {
+    if (frameCount % 100 == 0) {
+      pipes.push(new Pipe());
+    }
+  } else {
+    if (frameCount % 80 == 0) {
+      pipes.push(new Pipe());
+    }
   }
 
   for (let i = pipes.length - 1; i >= 0; i--) {

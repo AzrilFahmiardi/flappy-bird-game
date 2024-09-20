@@ -22,6 +22,9 @@ function Pipe() {
   };
 
   this.update = function () {
+    if (score > 5) {
+      this.speed = 5;
+    }
     this.x -= this.speed;
   };
 
